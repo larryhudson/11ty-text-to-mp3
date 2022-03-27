@@ -4,7 +4,7 @@ const { generateAudioBufferFromText } = require("../utils/text-to-speech");
 class Testing {
   data() {
     return {
-      permalink: (data) => data.pageToGenerate.mp3Url,
+      permalink: (data) => data.pageToGenerate.data.mp3Url,
       pagination: {
         data: "collections.generateMp3",
         size: 1,
