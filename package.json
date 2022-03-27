@@ -15,6 +15,7 @@
     "dotenv": "^16.0.0",
     "html-to-text": "^8.1.0",
     "js-md5": "^0.7.3",
-    "microsoft-cognitiveservices-speech-sdk": "^1.20.0"
+    "microsoft-cognitiveservices-speech-sdk": "^1.20.0",
+    "netlify-plugin-cache": "^1.0.3"
   }
 }
