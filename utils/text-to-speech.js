@@ -1,5 +1,6 @@
 const sdk = require("microsoft-cognitiveservices-speech-sdk");
 const fs = require("fs");
+const fsPromises = require("fs/promises");
 const { AssetCache } = require("@11ty/eleventy-fetch");
 const md5 = require("js-md5");
 
@@ -22,6 +23,8 @@ async function generateAudioBufferFromText({ text }) {
 
   speechConfig.speechSynthesisOutputFormat =
     sdk.SpeechSynthesisOutputFormat.Audio16Khz32KBitRateMonoMp3;
+
+  if (!fs.existsSync(".tmp-mp3")) await fsPromises.mkdir(".tmp-mp3");
 
   const audioConfig = sdk.AudioConfig.fromAudioFileOutput(
     `.tmp-mp3/tmp-${textHash}.mp3`
@@ -60,4 +63,5 @@ async function generateMp3FromText({ text, outputFilePath }) {
 
 module.exports = {
   generateMp3FromText,
+  generateAudioBufferFromText,
 };

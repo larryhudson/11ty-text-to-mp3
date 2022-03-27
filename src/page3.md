@@ -1,5 +1,5 @@
 ---
-generateMp3: true
+mp3Url: /mp3/my-third-post.mp3
 layout: layouts/post.njk
 ---
 
