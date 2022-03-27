@@ -1,4 +1,6 @@
 ---
+title: My third post
+description: Here's a description
 mp3Url: /mp3/my-third-post.mp3
 layout: layouts/post.njk
 ---
