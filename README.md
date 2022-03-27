@@ -2,6 +2,8 @@
 
 This project is an example of how you can use Microsoft's Cognitive Services Speech API to generate MP3 audio versions of your Eleventy pages.
 
+You can find the hosted demo site here: [https://11ty-text-to-mp3.netlify.app/](https://11ty-text-to-mp3.netlify.app/)
+
 ## How to get started
 
 1. Clone this repo
