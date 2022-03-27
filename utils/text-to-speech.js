@@ -14,20 +14,22 @@ async function generateAudioBufferFromText({ text }) {
     return cachedMp3.getCachedValue();
   }
 
-  console.log("Asking Microsoft API to generate MP3...");
+  console.log(`Asking Microsoft API to generate MP3 for hash ${textHash}`);
 
   const speechConfig = sdk.SpeechConfig.fromSubscription(
     process.env.MICROSOFT_TTS_SPEECH_KEY,
     process.env.MICROSOFT_TTS_REGION
   );
 
+  speechConfig.speechSynthesisLanguage = "en-AU";
+  speechConfig.speechSynthesisVoiceName = "en-AU-WilliamNeural";
   speechConfig.speechSynthesisOutputFormat =
     sdk.SpeechSynthesisOutputFormat.Audio16Khz32KBitRateMonoMp3;
 
   if (!fs.existsSync(".tmp-mp3")) await fsPromises.mkdir(".tmp-mp3");
 
   const audioConfig = sdk.AudioConfig.fromAudioFileOutput(
-    `.tmp-mp3/tmp-${textHash}.mp3`
+    `.tmp-mp3/${textHash}.mp3`
   );
 
   const synthesizer = new sdk.SpeechSynthesizer(speechConfig, audioConfig);
@@ -55,13 +57,6 @@ async function generateAudioBufferFromText({ text }) {
   return audioBuffer;
 }
 
-async function generateMp3FromText({ text, outputFilePath }) {
-  const generatedAudioBuffer = await generateAudioBufferFromText({ text });
-
-  fs.createWriteStream(outputFilePath).write(generatedAudioBuffer);
-}
-
 module.exports = {
-  generateMp3FromText,
   generateAudioBufferFromText,
 };

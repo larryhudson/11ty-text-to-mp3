@@ -1,7 +1,7 @@
 const { convert } = require("html-to-text");
 const { generateAudioBufferFromText } = require("../utils/text-to-speech");
 
-class Testing {
+class TextToSpeechMp3 {
   data() {
     return {
       permalink: (data) => data.pageToGenerate.data.mp3Url,
@@ -20,4 +20,4 @@ class Testing {
   }
 }
 
-module.exports = Testing;
+module.exports = TextToSpeechMp3;
