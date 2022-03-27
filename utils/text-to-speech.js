@@ -9,8 +9,11 @@ async function generateAudioBufferFromText({ text }) {
   let cachedMp3 = new AssetCache(textHash);
 
   if (cachedMp3.isCacheValid("365d")) {
+    console.log(`Using cached MP3 data for hash ${textHash}`);
     return cachedMp3.getCachedValue();
   }
+
+  console.log("Asking Microsoft API to generate MP3...");
 
   const speechConfig = sdk.SpeechConfig.fromSubscription(
     process.env.MICROSOFT_TTS_SPEECH_KEY,
