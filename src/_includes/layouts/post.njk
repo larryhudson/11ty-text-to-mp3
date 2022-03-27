@@ -4,7 +4,20 @@
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>{{ title }} | 11ty-text-to-mp3</title>
+    <title>
+      {% if page.url !== "/" %}
+        {{ title }} |
+      {% endif %}11ty-text-to-mp3</title>
+    <meta property="og:site_name" content="11ty-text-to-mp3"/>
+    <meta property="og:title" content="11ty-text-to-mp3"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://11ty-text-to-mp3.netlify.app/"/>
+    <meta name="author" content="Larry Hudson">
+    <meta name="description" content="Generate audio from Eleventy content using Microsoft Cognitive Speech"/>
+    <meta name="twitter:description" content="Generate audio from Eleventy content using Microsoft Cognitive Speech"/>
+    <meta property="og:description" content="Generate audio from Eleventy content using Microsoft Cognitive Speech"/>
+    <meta name="twitter:site" content="@larryhudsondev"/>
+    <meta name="twitter:creator" content="@larryhudsondev"/>
   </head>
   <body>
     <header>
