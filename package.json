@@ -1,0 +1,20 @@
+{
+  "name": "11ty-mp3",
+  "version": "1.0.0",
+  "description": "",
+  "main": ".eleventy.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@11ty/eleventy": "^2.0.0-canary.4",
+    "@11ty/eleventy-fetch": "^3.0.0",
+    "dotenv": "^16.0.0",
+    "html-to-text": "^8.1.0",
+    "js-md5": "^0.7.3",
+    "microsoft-cognitiveservices-speech-sdk": "^1.20.0"
+  }
+}
