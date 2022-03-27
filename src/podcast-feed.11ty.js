@@ -41,6 +41,10 @@ class TextToSpeechMp3 {
         description: podcastItem.data.description,
         url: `https://11ty-text-to-mp3.netlify.app${podcastItem.data.mp3Url}`,
         date: podcastItem.date,
+        enclosure: {
+          url: `https://11ty-text-to-mp3.netlify.app${podcastItem.data.mp3Url}`,
+          file: `./_site${podcastItem.data.mp3Url}`,
+        },
       });
     });
 
