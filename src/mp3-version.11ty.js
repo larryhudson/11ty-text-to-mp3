@@ -1,22 +1,19 @@
-const { convert } = require("html-to-text");
-const { generateAudioBufferFromText } = require("../utils/text-to-speech");
+const { convertHtmlToAudio } = require("../utils/text-to-speech");
 
 class TextToSpeechMp3 {
   data() {
     return {
-      permalink: (data) => data.pageToGenerate.data.mp3Url,
+      permalink: (data) => data.mp3Page.data.mp3Url,
       pagination: {
         data: "collections.generateMp3",
         size: 1,
-        alias: "pageToGenerate",
+        alias: "mp3Page",
       },
     };
   }
 
   async render(data) {
-    return await generateAudioBufferFromText({
-      text: convert(data.pageToGenerate.templateContent, { wordwrap: 0 }),
-    });
+    return await convertHtmlToAudio(data.mp3Page.templateContent);
   }
 }
 

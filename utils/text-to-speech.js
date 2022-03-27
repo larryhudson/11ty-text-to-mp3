@@ -3,8 +3,14 @@ const fs = require("fs");
 const fsPromises = require("fs/promises");
 const { AssetCache } = require("@11ty/eleventy-fetch");
 const md5 = require("js-md5");
+const { convert } = require("html-to-text");
 
-async function generateAudioBufferFromText({ text }) {
+async function convertHtmlToPlainText(html) {
+  return convert(html, { wordwrap: 0 });
+}
+
+async function convertHtmlToAudio(html) {
+  const text = convertHtmlToPlainText(html);
   const textHash = md5(text);
 
   let cachedMp3 = new AssetCache(textHash);
@@ -12,9 +18,9 @@ async function generateAudioBufferFromText({ text }) {
   if (cachedMp3.isCacheValid("365d")) {
     console.log(`Using cached MP3 data for hash ${textHash}`);
     return cachedMp3.getCachedValue();
+  } else {
+    console.log(`Asking Microsoft API to generate MP3 for hash ${textHash}`);
   }
-
-  console.log(`Asking Microsoft API to generate MP3 for hash ${textHash}`);
 
   const speechConfig = sdk.SpeechConfig.fromSubscription(
     process.env.MICROSOFT_TTS_SPEECH_KEY,
@@ -40,7 +46,6 @@ async function generateAudioBufferFromText({ text }) {
       async (result) => {
         synthesizer.close();
         if (result) {
-          // return result as stream
           resolve(result.privAudioData);
         }
       },
@@ -58,5 +63,6 @@ async function generateAudioBufferFromText({ text }) {
 }
 
 module.exports = {
-  generateAudioBufferFromText,
+  convertHtmlToAudio,
+  convertHtmlToPlainText,
 };
