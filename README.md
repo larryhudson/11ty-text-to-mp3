@@ -37,3 +37,7 @@ In `src/mp3-version.11ty.js`, we paginate over the `generateMp3` collection with
 In `utils/text-to-speech.js`, we take some HTML, turn it into plain text with the `html-to-text` NPM library, and then send it to Microsoft's Cognitive Services Speech API to generate an audio version.
 
 Before we generate the audio, we generate an MD5 hash based on the text content. We save the generated audio buffer data in a cache using the `@11ty/eleventy-fetch` package. We use that MD5 hash to identify the cached data - that way, if we re-run the build command and the text content has not changed, it will used the cached data. This is important because Microsoft's free tier only allows 5 hours of audio per month.
+
+### Caching between Netlify builds
+
+If you generate new audio versions every time your site rebuilds, you'll use up your free tier API quota very quickly. This project uses the `netlify-plugin-cache` to persist the `.cache` folder (used by `@11ty/eleventy-fetch`) between builds on Netlify. The Netlify build plugin is configured in `netlify.toml`.
