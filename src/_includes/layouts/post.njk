@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>{{ title }} | 11ty-text-to-mp3</title>
   </head>
   <body>
+    <header>
+      <h1>{{ title }}</h1>
+    </header>
     {% if mp3Url %}
-    <audio controls>
-      <source src="{{ mp3Url }}" type="audio/mpeg" />
-      Your browser does not support the audio element.
-    </audio>
+      <audio controls>
+        <source src="{{ mp3Url }}" type="audio/mpeg"/> Your browser does not support the audio element.
+      </audio>
     {% endif %}
     {{ content | safe }}
+    <footer>
+      <p>Text content comes from
+        <a href="https://www.gutenberg.org/">Project Gutenberg</a>.</p>
+    </footer>
   </body>
 </html>

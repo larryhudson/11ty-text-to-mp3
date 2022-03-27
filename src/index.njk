@@ -1,0 +1,17 @@
+---
+layout: 'layouts/post.njk'
+title: 11ty-text-to-mp3
+---
+
+<p>This is an example project to show how you can generate audio of your <a href="https://www.11ty.dev/">Eleventy</a> content using <a href="https://azure.microsoft.com/en-us/services/cognitive-services/text-to-speech/#overview">Microsoft's Cognitive Services Speech API</a>.</p>
+
+<p>You can read more about this in the <a href="https://github.com/larryhudson/11ty-text-to-mp3">GitHub repository</a>.</p>
+
+<h2>Books</h2>
+<ul>
+    {% for bookPage in collections.generateMp3 %}
+        <li>
+            <a href="{{ bookPage.url }}">{{ bookPage.data.title }}</a>
+        </li>
+    {% endfor %}
+</ul>
