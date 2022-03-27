@@ -10,7 +10,7 @@ async function convertHtmlToPlainText(html) {
 }
 
 async function convertHtmlToAudio(html) {
-  const text = convertHtmlToPlainText(html);
+  const text = await convertHtmlToPlainText(html);
   const textHash = md5(text);
 
   let cachedMp3 = new AssetCache(textHash);
