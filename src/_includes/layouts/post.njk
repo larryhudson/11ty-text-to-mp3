@@ -7,9 +7,9 @@
     <title>Document</title>
   </head>
   <body>
-    {% if generateMp3 %}
+    {% if mp3Url %}
     <audio controls>
-      <source src="/{{ page.fileSlug }}.mp3" type="audio/mpeg" />
+      <source src="{{ mp3Url }}" type="audio/mpeg" />
       Your browser does not support the audio element.
     </audio>
     {% endif %}
