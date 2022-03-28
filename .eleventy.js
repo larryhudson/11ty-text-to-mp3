@@ -75,7 +75,7 @@ module.exports = function (eleventyConfig) {
         feed.addItem({
           title: podcastItem.title,
           description: podcastItem.description,
-          url: podcastItem.mp3UrlWithSite,
+          url: podcastItem.pageUrlWithSite,
           date: podcastItem.date,
           itunesDuration: podcastItem.duration,
           enclosure: {

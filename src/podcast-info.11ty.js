@@ -12,6 +12,7 @@ class PodcastInfoJson {
         description: mp3Page.data.description,
         date: mp3Page.data.date,
         mp3Url: mp3Page.data.mp3Url,
+        pageUrlWithSite: `https://11ty-text-to-mp3.netlify.app${mp3Page.url}`,
         mp3UrlWithSite: `https://11ty-text-to-mp3.netlify.app${mp3Page.data.mp3Url}`,
       })),
       null,
