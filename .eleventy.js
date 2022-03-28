@@ -78,6 +78,8 @@ module.exports = function (eleventyConfig) {
           url: podcastItem.pageUrlWithSite,
           date: podcastItem.date,
           itunesDuration: podcastItem.duration,
+          itunesSummary: podcastItem.description,
+          content: `content: ${podcastItem.description}`,
           enclosure: {
             url: podcastItem.mp3UrlWithSite,
             size: podcastItem.size,
