@@ -35,8 +35,10 @@
     {% endif %}
     {{ content | safe }}
     <footer>
-      <p>Text content comes from
-        <a href="https://www.gutenberg.org/">Project Gutenberg</a>.</p>
+      {% if page.url !== "/" %}
+        <p>Text content comes from
+          <a href="https://www.gutenberg.org/">Project Gutenberg</a>.</p>
+      {% endif %}
     </footer>
   </body>
 </html>

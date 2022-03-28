@@ -43,3 +43,26 @@ Before we generate the audio, we generate an MD5 hash based on the text content.
 ### Caching between Netlify builds
 
 If you generate new audio versions every time your site rebuilds, you'll use up your free tier API quota very quickly. This project uses the `netlify-plugin-cache` to persist the `.cache` folder (used by `@11ty/eleventy-fetch`) between builds on Netlify. The Netlify build plugin is configured in `netlify.toml`.
+
+## Generating a podcast feed
+
+This project also generates a podcast RSS feed with the audio versions of the pages. This means readers can add the feed to their podcast player and listen to the posts in their preferred app.
+
+To create a podcast feed, we need to:
+
+1. make a list of podcast episodes during the Eleventy build (when we have access to the `generateMp3` collection), then,
+2. get some information from the MP3 files after the build has completed, and create a podcast feed
+
+This is how it works:
+
+### 1. Making the list of podcast episodes during build
+
+In `src/podcast-info.11ty.js`, we create a JSON file (`/podcast-info.json`) with most of the data that the podcast feed needs - an array of podcast episodes with titles, descriptions, dates and links. That JSON file gets written to the site's output directory.
+
+### 2. Creating the podcast feed after the build completes
+
+in `.eleventy.js`, we add an event that runs after the build has completed, using `eleventyConfig.on('eleventy.after')`.
+
+We look at the generated MP3 files in the output folder, and get the file size in bytes and the duration of the audio files. We need to include this information in the podcast feed so that podcast apps can show this information to listeners before the listeners download the episodes.
+
+Then, we use the `podcast` NPM package to create a podcast feed using the data above. We write the final `podcast.xml` file to the output directory and delete the temporary `podcast-info.json` file.
