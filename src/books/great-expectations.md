@@ -1,5 +1,7 @@
 ---
 title: Great Expectations
+date: 2022-03-29
+description: Great Expectations is the thirteenth novel by Charles Dickens and his penultimate completed novel. It depicts the education of an orphan nicknamed Pip (the book is a bildungsroman, a coming-of-age story).
 mp3Url: /mp3/great-expectations.mp3
 layout: layouts/post.njk
 ---

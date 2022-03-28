@@ -29,16 +29,7 @@
 //     const textHash = getTextHashFromHtml(podcastItem.templateContent);
 //     const bytesFromCache = new AssetCache(`${textHash}_bytes`);
 //     const bytes = bytesFromCache.getCachedValue();
-//     feed.addItem({
-//       title: podcastItem.data.title,
-//       description: podcastItem.data.description,
-//       url: `https://11ty-text-to-mp3.netlify.app${podcastItem.data.mp3Url}`,
-//       date: podcastItem.date,
-//       enclosure: {
-//         url: `https://11ty-text-to-mp3.netlify.app${podcastItem.data.mp3Url}`,
-//         size: bytes,
-//       },
-//     });
+
 //   });
 
 //   return feed.buildXml();

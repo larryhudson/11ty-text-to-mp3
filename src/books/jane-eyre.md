@@ -1,5 +1,7 @@
 ---
 title: Jane Eyre
+date: 2022-03-25
+description: Jane Eyre is a novel by English writer Charlotte Brontë, published under the pen name "Currer Bell", on 16 October 1847, by Smith, Elder & Co. of London.
 mp3Url: /mp3/jane-eyre.mp3
 layout: layouts/post.njk
 ---

@@ -1,5 +1,7 @@
 ---
 title: Metamorphosis
+date: 2022-03-21
+description: Metamorphosis is an allegorical novella written by Franz Kafka which was first published in 1915. One of Kafka's best-known works, Metamorphosis tells the story of salesman Gregor Samsa, who wakes one morning to find himself inexplicably transformed into a huge insect (ungeheueres Ungeziefer, lit. "monstrous vermin") and subsequently struggles to adjust to this new condition.
 mp3Url: /mp3/metamorphosis.mp3
 layout: layouts/post.njk
 ---
